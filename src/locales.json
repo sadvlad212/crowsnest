@@ -1,0 +1,9 @@
+[
+  {
+    "locale": "en",
+    "name": "English"
+  },
+  { "locale": "vi", "name": "Tiếng Việt" },
+  { "locale": "ru", "name": "Русский" },
+  { "locale": "es", "name": "Español" }
+]
