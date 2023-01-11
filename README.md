@@ -1,7 +1,7 @@
 <div style="text-align: center;">
 <h1>CrowsNest</h1>
 
-[![CrowsNest Discord server](https://discordapp.com/api/guilds/906042713688928257/widget.png?style=banner2)](https://discord.gg/3YrabTybpp)
+[![CrowsNest Discord server](https://discord.com/api/guilds/974615672183193600/widget.json](https://discord.gg/3YrabTybpp)
 
 ### CrowsNest is a multi-language website that provides you anime, manga and related resources.
 
@@ -49,7 +49,3 @@ The official website is [crowsnest.live](https://crowsnest.live)
 - Video player design is heavily inspired by [Netflix](https://netflix.com)
 - Reader is heavily inspired by [danke.moe](https://danke.moe)
 - Info from [Anilist](anilist.co)
-
-## Installation
-
-See [INSTALLATION.md](INSTALLATION.md)
