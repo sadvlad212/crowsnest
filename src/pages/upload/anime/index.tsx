@@ -30,7 +30,7 @@ interface UploadAnimePageProps {
 
 const columns: Column<MediaWithMediaUnit<MediaType.Anime>>[] = [
   {
-    Header: "Photo",
+    Header: "Ảnh",
     Cell: ({ cell }) => {
       const originalCell = cell.row.original;
       const title = getTitle(originalCell);
@@ -44,7 +44,7 @@ const columns: Column<MediaWithMediaUnit<MediaType.Anime>>[] = [
     accessor: "coverImage",
   },
   {
-    Header: "Name",
+    Header: "Tên",
     Cell: ({ cell }) => {
       const originalCell = cell.row.original;
 
@@ -59,7 +59,7 @@ const columns: Column<MediaWithMediaUnit<MediaType.Anime>>[] = [
     accessor: "title",
   },
   {
-    Header: "Content",
+    Header: "Nội dung",
     accessor: "description",
     Cell: ({ cell }) => {
       return (
@@ -73,7 +73,7 @@ const columns: Column<MediaWithMediaUnit<MediaType.Anime>>[] = [
     },
   },
   {
-    Header: "Episode posted",
+    Header: "Tập đã đăng",
     accessor: "episodes",
     Cell: ({ cell }) => {
       const originalCell = cell.row.original;
@@ -88,7 +88,7 @@ const columns: Column<MediaWithMediaUnit<MediaType.Anime>>[] = [
     },
   },
   {
-    Header: "Act",
+    Header: "Hành động",
     Cell: ({ cell }) => {
       return (
         <div className="w-full flex items-center justify-center">
@@ -143,7 +143,7 @@ const UploadAnimePage: NextPage<UploadAnimePageProps> = ({
 
   return (
     <UploadContainer
-      title="List of Uploaded Anime"
+      title="Danh sách Anime đã upload"
       isVerified={user.isVerified}
     >
       <Button primary className="absolute -top-2 right-4 md:right-12">
@@ -165,7 +165,7 @@ const UploadAnimePage: NextPage<UploadAnimePageProps> = ({
           onPageIndexChange={handlePageIndexChange}
         />
       ) : (
-        <h1 className="text-3xl text-center">You have not posted any Anime yet</h1>
+        <h1 className="text-3xl text-center">Bạn chưa đăng Anime nào</h1>
       )}
     </UploadContainer>
   );
