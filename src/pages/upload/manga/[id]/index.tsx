@@ -93,7 +93,7 @@ const UploadMangaPage: NextPage<UploadMangaPageProps> = ({
                   <Link href={`/upload/manga/${mediaId}/chapters/create`}>
                     <a>
                       <Button LeftIcon={IoIosAddCircleOutline} primary>
-                        New Chapter
+                        Chapter mới
                       </Button>
                     </a>
                   </Link>
@@ -134,12 +134,12 @@ const UploadMangaPage: NextPage<UploadMangaPageProps> = ({
             confirmString={manga.title.userPreferred}
           >
             <h1 className="text-2xl font-semibold">
-              Are you sure delete?
+              Bạn có chắc chắn xóa không?
             </h1>
 
             <p>
-              Once deleted, you cannot restore it. This will delete
-              absolutely any data related to this manga.
+              Một khi đã xóa, bạn sẽ không thể khôi phục lại. Điều này sẽ xóa
+              hoàn toàn bất kỳ dữ liệu nào liên quan đến manga này.
             </p>
           </DeleteConfirmation>
         </Section>

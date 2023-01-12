@@ -82,7 +82,9 @@ const CreateUploadAnimePage: React.FC<Props> = ({ user }) => {
           )}
 
           {!hasNextPage && !!totalData.length && (
-            <p className="mt-8 text-2xl text-center">End...</p>
+            <p className="mt-8 text-2xl text-center">
+              There is nothing left...
+            </p>
           )}
         </React.Fragment>
       ) : (

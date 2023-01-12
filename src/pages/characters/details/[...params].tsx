@@ -107,7 +107,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ character }) => {
   return (
     <>
       <Head
-        title={`${character.name.userPreferred} - CrowsNest`}
+        title={`${character.name.userPreferred} - Kaguya`}
         image={character.image.large}
       />
 

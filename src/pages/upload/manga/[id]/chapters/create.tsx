@@ -45,7 +45,7 @@ const UploadCreateChapterPage: NextPage<UploadCreateChapterPageProps> = ({
         <div className="space-y-16">
           <UploadSection>
             <UploadSection.Left>
-              <label className="font-semibold text-2xl">Chapter</label>
+              <label className="font-semibold text-2xl">Chương</label>
             </UploadSection.Left>
 
             <UploadSection.Right>
@@ -55,9 +55,9 @@ const UploadCreateChapterPage: NextPage<UploadCreateChapterPageProps> = ({
 
           <UploadSection>
             <UploadSection.Left>
-              <label className="font-semibold text-2xl">Picture</label>
+              <label className="font-semibold text-2xl">Hình ảnh</label>
               <p className="text-sm text-gray-300">
-               Support {supportedUploadImageFormats.join(", ")}
+                Hỗ trợ {supportedUploadImageFormats.join(", ")}
               </p>
             </UploadSection.Left>
 
