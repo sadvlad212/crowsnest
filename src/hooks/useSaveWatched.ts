@@ -1,0 +1,38 @@
+import { useUser } from "@/contexts/AuthContext";
+import supabaseClient from "@/lib/supabase";
+import { Watched } from "@/types";
+import { useMutation } from "react-query";
+
+interface MutationInput {
+  media_id: number;
+  episode_id: string;
+  watched_time?: number;
+}
+
+const useSaveWatched = () => {
+  const user = useUser();
+
+  return useMutation(async (data: MutationInput) => {
+    if (!user) return;
+
+    const { episode_id, media_id, watched_time } = data;
+
+    const { error: upsertError } = await supabaseClient
+      .from<Watched>("kaguya_watched")
+      .upsert(
+        {
+          mediaId: media_id,
+          episodeId: episode_id,
+          userId: user.id,
+          watchedTime: watched_time,
+        },
+        { returning: "minimal" }
+      );
+
+    if (upsertError) throw upsertError;
+
+    return true;
+  });
+};
+
+export default useSaveWatched;
