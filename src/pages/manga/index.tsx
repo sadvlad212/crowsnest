@@ -70,8 +70,8 @@ const Home = () => {
   return (
     <React.Fragment>
       <Head
-        title="Home (Manga) - CrowsNest"
-        description="Latest Manga, just one click away. No ads, new and exiting features and many more only on CrowsNest."
+        title="Trang chủ (Manga) - Kaguya"
+        description="Đọc truyện manga hay tại Kaguya, cập nhật nhanh chóng, không quảng cáo và nhiều tính năng thú vị."
       />
 
       <ClientOnly>
