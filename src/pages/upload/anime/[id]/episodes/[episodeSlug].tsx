@@ -79,7 +79,7 @@ const UploadEpisodeEditPage: NextPage<UploadEpisodeEditPageProps> = ({
           <div className="space-y-16">
             <UploadSection>
               <UploadSection.Left>
-                <label className="font-semibold text-2xl">Tập phim</label>
+                <label className="font-semibold text-2xl">Episode</label>
               </UploadSection.Left>
 
               <UploadSection.Right>
@@ -94,13 +94,13 @@ const UploadEpisodeEditPage: NextPage<UploadEpisodeEditPageProps> = ({
               <UploadSection.Left>
                 <label className="font-semibold text-2xl">Video</label>
                 <p className="text-sm text-gray-300">
-                  Hỗ trợ {supportedUploadVideoFormats.join(", ")}
+                  Support {supportedUploadVideoFormats.join(", ")}
                 </p>
               </UploadSection.Left>
 
               <UploadSection.Right className="space-y-1">
                 <p>
-                  Tình trạng video:{" "}
+                  Video Status:{" "}
                   {videoStatus.converted ? "Đã chuyển đổi" : "Đang chuyển đổi"}
                 </p>
 
@@ -115,7 +115,7 @@ const UploadEpisodeEditPage: NextPage<UploadEpisodeEditPageProps> = ({
               <UploadSection.Left>
                 <label className="font-semibold text-2xl">Subtitles</label>
                 <p className="text-sm text-gray-300">
-                  Hỗ trợ {supportedUploadSubtitleFormats.join(", ")}
+                  Support {supportedUploadSubtitleFormats.join(", ")}
                 </p>
               </UploadSection.Left>
 
@@ -131,7 +131,7 @@ const UploadEpisodeEditPage: NextPage<UploadEpisodeEditPageProps> = ({
               <UploadSection.Left>
                 <label className="font-semibold text-2xl">Fonts</label>
                 <p className="text-sm text-gray-300">
-                  Fonts chỉ dành cho subtitle .ass
+                  Fonts for subtitles only .ass
                 </p>
               </UploadSection.Left>
 
@@ -155,24 +155,24 @@ const UploadEpisodeEditPage: NextPage<UploadEpisodeEditPageProps> = ({
             confirmString={data.name}
           >
             <h1 className="text-2xl font-semibold">
-              Bạn có chắc chắn xóa không?
+              Are you sure delete?
             </h1>
 
             <p>
-              Một khi đã xóa, bạn sẽ không thể khôi phục lại. Điều này sẽ xóa
-              hoàn toàn bất kỳ dữ liệu nào liên quan đến tập này.
+              Once deleted, you cannot restore it. This will delete
+              absolutely any data relating to this set.
             </p>
           </DeleteConfirmation>
 
           <div className="flex gap-2 items-center">
             <p>
-              Tình trạng tập phim: {data.published ? "Đã đăng" : "Chưa đăng"}
+              Episode Status: {data.published ? "Đã đăng" : "Chưa đăng"}
             </p>
 
             <Link href={`/upload/anime/${mediaId}/episodes/create`}>
               <a>
                 <Button className="!bg-gray-600 hover:!bg-opacity-80">
-                  Tạo tập mới
+                  Create a new episode
                 </Button>
               </a>
             </Link>
@@ -180,7 +180,7 @@ const UploadEpisodeEditPage: NextPage<UploadEpisodeEditPageProps> = ({
             {data.published ? (
               <Link href={`/anime/watch/${mediaId}/${sourceId}/${episodeId}`}>
                 <a>
-                  <Button primary>Xem tập phim</Button>
+                  <Button primary>Watch the episode</Button>
                 </a>
               </Link>
             ) : (
@@ -190,7 +190,7 @@ const UploadEpisodeEditPage: NextPage<UploadEpisodeEditPageProps> = ({
                 disabled={!videoStatus.converted}
                 onClick={handlePublish}
               >
-                Đăng tập phim
+                Post episode
               </Button>
             )}
           </div>

@@ -80,9 +80,7 @@ const ChooseAnimePage = () => {
           )}
 
           {!hasNextPage && !!totalData.length && (
-            <p className="mt-8 text-2xl text-center">
-              There is nothing left...
-            </p>
+            <p className="mt-8 text-2xl text-center">Hết rồi...</p>
           )}
         </React.Fragment>
       ) : (

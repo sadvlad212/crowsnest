@@ -15,7 +15,7 @@ const WatchedSwiper: React.FC<WatchedSwiperProps> = ({ data, ...props }) => {
 
   return (
     <Swiper speed={500} {...props}>
-      {data.map(({ media, episode, watchedTime }, index) => {
+      {data.map(({ media, episode }, index) => {
         return (
           <SwiperSlide key={index}>
             <Link
@@ -28,8 +28,6 @@ const WatchedSwiper: React.FC<WatchedSwiperProps> = ({ data, ...props }) => {
                     thumbnail: media.bannerImage || media.coverImage.extraLarge,
                   }}
                   title={getTitle(media, locale)}
-                  duration={(media?.duration || 0) * 60}
-                  watchedTime={watchedTime}
                 />
               </a>
             </Link>

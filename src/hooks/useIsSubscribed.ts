@@ -1,15 +1,16 @@
 import { useUser } from "@/contexts/AuthContext";
 import supabaseClient from "@/lib/supabase";
 
-import { Media, MediaType } from "@/types/anilist";
+import { Media } from "@/types/anilist";
 import { useQuery } from "react-query";
 
-const useIsSubscribed = <T extends MediaType>(type: T, source: Media) => {
+const useIsSubscribed = <T extends "anime" | "manga">(
+  type: T,
+  source: Media
+) => {
   const user = useUser();
   const tableName =
-    type === MediaType.Anime
-      ? "kaguya_anime_subscribers"
-      : "kaguya_manga_subscribers";
+    type === "anime" ? "kaguya_anime_subscribers" : "kaguya_manga_subscribers";
   const queryKey = ["is_subscribed", user.id, source.id];
 
   return useQuery(

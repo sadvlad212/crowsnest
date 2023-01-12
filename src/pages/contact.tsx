@@ -8,12 +8,12 @@ import { FaDiscord } from "react-icons/fa";
 const contact = () => {
   return (
     <div className="px-4 md:px-12 pt-20 space-y-4">
-      <Head title="Liên hệ - Kaguya" description="Liên hệ với chúng tôi." />
+      <Head title="Contact - CrowsNest" description="Contact us." />
 
-      <h1 className="text-2xl font-bold">Liên hệ với chúng tôi</h1>
+      <h1 className="text-2xl font-bold">Contact us</h1>
 
       <p className="text-lg">
-        Bạn có thể liên hệ với chúng tôi qua những phương thức sau đây
+       You can contact us through the following methods
       </p>
 
       <div className="flex items-center space-x-4">

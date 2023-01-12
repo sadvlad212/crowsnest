@@ -98,8 +98,6 @@ const useCreateReaction = () => {
                 avatar: user?.avatarUrl,
                 name: user?.name,
                 id: user?.id,
-                role: user?.role,
-                username: user?.username,
               },
               user_id: user.id,
             });

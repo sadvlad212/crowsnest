@@ -184,10 +184,6 @@ export const TYPES = [
     value: "voice_actors",
     label: "Người lồng tiếng",
   },
-  {
-    value: "users",
-    label: "Người dùng",
-  },
 ];
 
 export const COUNTRIES = [

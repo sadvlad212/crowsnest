@@ -12,9 +12,9 @@ interface HeadProps {
 
 const Head: React.FC<HeadProps> = (props) => {
   const {
-    title = "Kaguya",
-    description = "Website xem anime hoàn toàn miễn phí, không quảng cáo.",
-    image = "https://i.ibb.co/JnDDN9j/localhost-3000-2.png",
+    title = "CrowsNest",
+    description = "Nest for all your favorite anime.",
+    image = "https://cdn.discordapp.com/attachments/979202053698105405/1062217933415264306/chrome_xfB27hS1MB.png",
   } = props;
 
   const { asPath } = useRouter();

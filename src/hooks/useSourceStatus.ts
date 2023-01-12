@@ -2,13 +2,16 @@ import { useUser } from "@/contexts/AuthContext";
 import supabaseClient from "@/lib/supabase";
 
 import { SourceStatus } from "@/types";
-import { MediaType } from "@/types/anilist";
+import { Media } from "@/types/anilist";
 import { useSupabaseSingleQuery } from "@/utils/supabase";
 
-const useSourceStatus = <T extends MediaType>(type: T, mediaId: number) => {
+const useSourceStatus = <T extends "anime" | "manga">(
+  type: T,
+  source: Media
+) => {
   const tableName =
-    type === MediaType.Anime ? "kaguya_watch_status" : "kaguya_read_status";
-  const queryKey = [tableName, mediaId];
+    type === "anime" ? "kaguya_watch_status" : "kaguya_read_status";
+  const queryKey = [tableName, source.id];
   const user = useUser();
 
   return useSupabaseSingleQuery<SourceStatus<T>>(
@@ -18,7 +21,7 @@ const useSourceStatus = <T extends MediaType>(type: T, mediaId: number) => {
         .from(tableName)
         .select("*")
         .eq("userId", user.id)
-        .eq("mediaId", mediaId)
+        .eq("mediaId", source.id)
         .limit(1)
         .single();
     },

@@ -184,10 +184,6 @@ export const TYPES = [
     value: "voice_actors",
     label: "Voice actors",
   },
-  {
-    value: "users",
-    label: "Users",
-  },
 ];
 
 export const COUNTRIES = [

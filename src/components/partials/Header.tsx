@@ -28,11 +28,11 @@ const routes = [
     href: "/manga",
   },
   {
-    title: "anime_scene_search",
+    title: "Scene Search",
     href: "/scene-search",
   },
   {
-    title: "watch_with_friends",
+    title: "Nest2gether",
     href: "/wwf",
   },
   {

@@ -25,7 +25,6 @@ import CommentReactions from "./CommentReactions";
 import Comments from "./Comments";
 import Editor from "./Editor";
 import ReactionSelector from "./ReactionSelector";
-import Link from "next/link";
 
 interface CommentContainerProps {
   commentId: string;
@@ -135,19 +134,11 @@ const CommentComponent: React.FC<CommentProps> = ({ comment }) => {
       onMouseEnter={handleToggleActionMenu(true)}
       onMouseLeave={handleToggleActionMenu(false)}
     >
-      <Link href={`/users/${comment.user.username}`}>
-        <a>
-          <Avatar src={comment.user.avatar} />
-        </a>
-      </Link>
+      <Avatar src={comment.user.avatar} />
 
       <div className="grow">
         <DotList className="mb-1">
           <span className="font-semibold">{comment.user.name}</span>
-
-          <span className="capitalize font-medium text-gray-200 text-sm">
-            {comment.user.role}
-          </span>
 
           <span className="text-gray-400 text-sm">
             {dayjs(comment.created_at, { locale }).fromNow()}

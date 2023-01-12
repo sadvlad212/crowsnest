@@ -29,7 +29,7 @@ const KeyValue: React.FC<{ property: string; value: string }> = ({
   <div>
     <b>{property}: </b>
 
-    <span>{value || "Không rõ"}</span>
+    <span>{value || "Unclear"}</span>
   </div>
 );
 
@@ -81,7 +81,7 @@ const DetailsPage: NextPage<DetailsPageProps> = ({ voiceActor }) => {
   return (
     <>
       <Head
-        title={`${voiceActor.name.userPreferred} - Kaguya`}
+        title={`${voiceActor.name.userPreferred} - CrowsNest`}
         image={voiceActor.image.large}
       />
 

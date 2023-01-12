@@ -3,8 +3,9 @@ import supabaseClient from "@/lib/supabase";
 
 import { getMedia } from "@/services/anilist";
 import { Watched } from "@/types";
-import { isMobile } from "react-device-detect";
+import { fulfilledPromises } from "@/utils";
 import { useQuery } from "react-query";
+import { isMobile } from "react-device-detect";
 
 const useWatched = () => {
   const user = useUser();
@@ -15,7 +16,7 @@ const useWatched = () => {
       const { data, error } = await supabaseClient
         .from<Watched>("kaguya_watched")
         .select(
-          "mediaId, episode:kaguya_episodes!episodeId(sourceEpisodeId, name, sourceId), watchedTime"
+          "mediaId, episode:kaguya_episodes!episodeId(sourceEpisodeId, name, sourceId)"
         )
         .eq("userId", user.id)
         .order("updated_at", { ascending: false })

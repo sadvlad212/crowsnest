@@ -2,7 +2,7 @@ import Select from "@/components/shared/Select";
 import useConstantTranslation from "@/hooks/useConstantTranslation";
 import useModifySourceStatus from "@/hooks/useModifySourceStatus";
 import useSourceStatus from "@/hooks/useSourceStatus";
-import { Media, MediaType } from "@/types/anilist";
+import { Media } from "@/types/anilist";
 import { useTranslation } from "next-i18next";
 import React, { useMemo } from "react";
 import { AiFillPlusCircle, AiOutlineLoading3Quarters } from "react-icons/ai";
@@ -56,17 +56,18 @@ interface SourceStatusProps<T> {
   source: Media;
 }
 
-const SourceStatus = <T extends MediaType>({
-  source,
-  type,
-}: SourceStatusProps<T>) => {
+const SourceStatus = <T extends "anime" | "manga">(
+  props: SourceStatusProps<T>
+) => {
+  const { source, type } = props;
+
   const { t } = useTranslation("source_status");
-  const { data: status, isLoading } = useSourceStatus(type, source.id);
+  const { data: status, isLoading } = useSourceStatus(type, source);
   const statusMutation = useModifySourceStatus(type, source);
   const { WATCH_STATUS, READ_STATUS } = useConstantTranslation();
 
   const options = useMemo(
-    () => (type === MediaType.Anime ? WATCH_STATUS : READ_STATUS),
+    () => (type === "anime" ? WATCH_STATUS : READ_STATUS),
     [READ_STATUS, WATCH_STATUS, type]
   );
 

@@ -115,7 +115,6 @@ export interface Watched {
   updated_at?: string;
   created_at?: string;
   watchedTime?: number;
-  episodeNumber?: number;
 }
 
 export interface Read {
@@ -160,8 +159,6 @@ export interface DisplayUser {
   id: string;
   name: string;
   avatar: string;
-  username: string;
-  role: string;
 }
 
 export interface Comment {
@@ -276,10 +273,8 @@ export type SourceStatus<T> = (T extends MediaType.Anime
       mediaId?: number;
       media?: Media;
     }) & {
-  userId?: string;
+  userId?: number;
   user?: User;
-  updated_at?: string;
-  created_at?: string;
 };
 
 export type SkipType = "ed" | "op" | "mixed-ed" | "mixed-op" | "recap";

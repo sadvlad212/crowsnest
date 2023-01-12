@@ -10,48 +10,33 @@ import useUserProfile from "@/hooks/useUserProfile";
 import supabaseClient from "@/lib/supabase";
 import { AdditionalUser, SourceStatus } from "@/types";
 import { GetServerSideProps, NextPage } from "next";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import WatchList from "@/components/features/users/WatchList";
 import { MediaType } from "@/types/anilist";
 import ReadList from "@/components/features/users/ReadList";
-import Button from "@/components/shared/Button";
-import classNames from "classnames";
 
 interface UserPageProps {
   user: AdditionalUser;
+  watchStatus: SourceStatus<MediaType.Anime>[];
+  readStatus: SourceStatus<MediaType.Manga>[];
 }
 
-const LISTS = {
-  Watch: "Watch",
-  Read: "Read",
-} as const;
-
-type ListKey = keyof typeof LISTS;
-type List = typeof LISTS[ListKey];
-
-const UserPage: NextPage<UserPageProps> = ({ user }) => {
+const UserPage: NextPage<UserPageProps> = ({
+  user,
+  watchStatus,
+  readStatus,
+}) => {
   const currentUser = useUser();
   const { data: userProfile } = useUserProfile(user);
-  const [listTab, setListTab] = useState<List>(LISTS.Watch);
 
   const isOwnProfile = useMemo(
     () => currentUser?.id === user.id,
     [currentUser?.id, user?.id]
   );
 
-  const handleListTabChange = (list: List) => () => {
-    setListTab(list);
-  };
-
   return (
     <React.Fragment>
-      <Head
-        title={`${user.name} (@${user.username}) - Kaguya`}
-        image={user.bannerUrl}
-        description={`Profile page of ${user.name} (@${user.username}) ${
-          user.bio ? ` - "${user.bio}"` : ""
-        }`}
-      />
+      <Head title={`${userProfile.name} (@${userProfile.username}) - CrowsNest`} />
 
       <div className="w-full min-h-screen">
         <div className="pt-16 md:pt-0 bg-background-800 w-full flex items-center">
@@ -83,7 +68,7 @@ const UserPage: NextPage<UserPageProps> = ({ user }) => {
                 className="mx-auto !w-full !h-full"
               />
 
-              {isOwnProfile && <UpdateAvatar user={user} />}
+              <UpdateAvatar user={user} />
             </div>
 
             <div className="md:pt-16 space-y-2">
@@ -111,33 +96,12 @@ const UserPage: NextPage<UserPageProps> = ({ user }) => {
           )}
         </Section>
 
-        <Section title="List" className="mt-8 w-full">
-          <div className="flex items-center gap-3">
-            <Button
-              className={classNames(
-                listTab === LISTS.Watch ? "bg-primary-600" : "bg-background-600"
-              )}
-              onClick={handleListTabChange(LISTS.Watch)}
-            >
-              Watch
-            </Button>
-            <Button
-              className={classNames(
-                listTab === LISTS.Read ? "bg-primary-600" : "bg-background-600"
-              )}
-              onClick={handleListTabChange(LISTS.Read)}
-            >
-              Read
-            </Button>
-          </div>
+        <Section title="Watch list" className="mt-8 w-full">
+          <WatchList user={user} sourceStatus={watchStatus} />
+        </Section>
 
-          <div className="mt-8">
-            {listTab === LISTS.Watch ? (
-              <WatchList user={user} />
-            ) : (
-              <ReadList user={user} />
-            )}
-          </div>
+        <Section title="Read list" className="mt-8 w-full">
+          <ReadList user={user} sourceStatus={readStatus} />
         </Section>
       </div>
     </React.Fragment>
@@ -158,9 +122,27 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       notFound: true,
     };
   }
+
+  const watchStatusPromise = supabaseClient
+    .from<SourceStatus<MediaType.Anime>>("kaguya_watch_status")
+    .select("mediaId, userId, status, created_at")
+    .eq("userId", user.id);
+
+  const readStatusPromise = supabaseClient
+    .from<SourceStatus<MediaType.Manga>>("kaguya_read_status")
+    .select("mediaId, userId, status, created_at")
+    .eq("userId", user.id);
+
+  const [{ data: watchStatus }, { data: readStatus }] = await Promise.all([
+    watchStatusPromise,
+    readStatusPromise,
+  ]);
+
   return {
     props: {
       user,
+      watchStatus,
+      readStatus,
     },
   };
 };

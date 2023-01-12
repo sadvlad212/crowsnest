@@ -20,7 +20,6 @@ const Footer = () => {
 
       <div className="flex items-center space-x-4">
         <ContactItem href={DISCORD_URL} Icon={FaDiscord} />
-        <ContactItem href={FACEBOOK_URL} Icon={AiFillFacebook} />
       </div>
 
       <div className="flex items-center space-x-8 text-center">
@@ -41,9 +40,9 @@ const Footer = () => {
         </Link>
       </div>
 
-      <p className="text-sm text-gray-300 text-center">{t("disclaimer")}</p>
+      <p className="text-sm text-gray-300 text-center">{t("CrowsNest does not store any files on our server, we only linked to the media which is hosted on 3rd party services.")}</p>
 
-      <p className="text-sm text-gray-300 text-center">© Kaguya.live</p>
+      <p className="text-sm text-gray-300 text-center">© crowsnest.live</p>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const List = <T extends any[]>({
   data,
   children,
   className = "",
-  noListMessage = "No data.",
+  noListMessage = "Không có dữ liệu.",
   ...props
 }: ListProps<T>) => {
   const validClassName = useMemo(
