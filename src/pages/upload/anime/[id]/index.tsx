@@ -140,12 +140,12 @@ const UploadAnimePage: NextPage<UploadAnimePageProps> = ({
             isLoading={deleteLoading}
           >
             <h1 className="text-2xl font-semibold">
-              Are you sure delete?
+              Bạn có chắc chắn xóa không?
             </h1>
 
             <p>
-              Once deleted, you cannot restore it. This will delete
-              absolutely any data related to this anime.
+              Một khi đã xóa, bạn sẽ không thể khôi phục lại. Điều này sẽ xóa
+              hoàn toàn bất kỳ dữ liệu nào liên quan đến anime này.
             </p>
           </DeleteConfirmation>
         </Section>

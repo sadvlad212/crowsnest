@@ -70,9 +70,9 @@ const ThemesPage = ({ slug, type }: ThemesPageProps) => {
     <React.Fragment>
       <Head
         title={
-          !data ? `Themes - CrowsNest` : `${data.name} (${data.type}) - CrowsNest`
+          !data ? `Themes - Kaguya` : `${data.name} (${data.type}) - Kaguya`
         }
-        description="Watch OP/ED of your favorite Anime."
+        description="Xem OP/ED của các Anime mà bạn yêu thích."
       />
 
       <ThemePlayerContextProvider

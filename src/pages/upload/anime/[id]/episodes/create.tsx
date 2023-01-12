@@ -59,7 +59,7 @@ const UploadCreateEpisodePage: NextPage<UploadCreateEpisodePageProps> = ({
         <div className="space-y-16">
           <UploadSection>
             <UploadSection.Left>
-              <label className="font-semibold text-2xl">Episode</label>
+              <label className="font-semibold text-2xl">Tập phim</label>
             </UploadSection.Left>
 
             <UploadSection.Right>
@@ -71,7 +71,7 @@ const UploadCreateEpisodePage: NextPage<UploadCreateEpisodePageProps> = ({
             <UploadSection.Left>
               <label className="font-semibold text-2xl">Video</label>
               <p className="text-sm text-gray-300">
-                Support {supportedUploadVideoFormats.join(", ")}
+                Hỗ trợ {supportedUploadVideoFormats.join(", ")}
               </p>
             </UploadSection.Left>
 
@@ -84,7 +84,7 @@ const UploadCreateEpisodePage: NextPage<UploadCreateEpisodePageProps> = ({
             <UploadSection.Left>
               <label className="font-semibold text-2xl">Subtitles</label>
               <p className="text-sm text-gray-300">
-                Support {supportedUploadSubtitleFormats.join(", ")}
+                Hỗ trợ {supportedUploadSubtitleFormats.join(", ")}
               </p>
             </UploadSection.Left>
 
@@ -97,7 +97,7 @@ const UploadCreateEpisodePage: NextPage<UploadCreateEpisodePageProps> = ({
             <UploadSection.Left>
               <label className="font-semibold text-2xl">Fonts</label>
               <p className="text-sm text-gray-300">
-                Fonts for subtitles only .ass
+                Fonts chỉ dành cho subtitle .ass
               </p>
             </UploadSection.Left>
 
